@@ -8,20 +8,19 @@ metadata:
 spec:
   serviceAccount: kubernetes
   containers:
-
-  - image: elizadevops/my-binary
+  - image: elizadevops/my-binary:1.0.0
     name: kubernetes
-    
     '''
 
 podTemplate(cloud: 'kubernetes', label: 'kubernetes', yaml: template) {
 node("kubernetes") {
     container("kubernetes") {
     stage("Checkout SCM") { 
-        git branch: 'main', url: 'https://github.com/elizadevops/flask-app-deploy.git'
+        git branch: 'main', url: 'https://github.com/elizasulaiman/flask-app-deploy.git'
     } 
+
     stage("Check") {
-        sh "helm upgrade --install flask ./flask-app --set deployment.image.elizadevops/jenkins-flask-app"
+        sh "helm upgrade --install flask ./flask-app --set deployment.image=kaizenacademy/jenkins-flask-app"
     }
     }
 }
