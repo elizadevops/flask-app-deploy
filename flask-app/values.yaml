@@ -2,7 +2,6 @@ deployment:
   name: flask
   port: 5000
   image: hello
-  tag: "1.0.0"
   
 service:
   name: flask-service
