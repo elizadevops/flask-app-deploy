@@ -9,7 +9,7 @@ spec:
   serviceAccount: kubernetes
   containers:
 
-  - image: elizadevops/my-binary:1.0.0
+  - image: elizadevops/my-binary
     name: kubernetes
     
     '''
