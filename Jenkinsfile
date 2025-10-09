@@ -21,7 +21,7 @@ node("kubernetes") {
         git branch: 'main', url: 'https://github.com/elizadevops/flask-app-deploy.git'
     } 
     stage("Check") {
-        sh "helm upgrade --install flask ./flask-app"
+        sh "helm upgrade --install flask ./flask-app --set deployment.image.elizadevops/jenkins-flask-app"
     }
     }
 }
