@@ -20,13 +20,8 @@ node("kubernetes") {
     stage("Checkout SCM") { 
         git branch: 'main', url: 'https://github.com/elizadevops/flask-app-deploy.git'
     } 
-    stage("Cheks") {
-        sh """
-        terraform version
-        helm version
-        kubectl version
-        kubectl get node
-        """
+    stage("Check") {
+        sh "helm upgrade --install flask ./flask-app"
     }
     }
 }
